@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
+import { useDispatch } from 'react-redux';
+import { addHistory, clearHistory } from '../store';
 import { socket } from '../socket';
 import { Thermometer as ThermometerHot, Thermometer as ThermometerCold, ThumbsUp, ThumbsDown } from 'lucide-react';
 
@@ -17,6 +19,7 @@ interface HistoryItem {
 }
 
 const PresenterView = () => {
+  const dispatch = useDispatch();
   const [votingEnabled, setVotingEnabled] = useState(false);
   const [results, setResults] = useState<VotingResult>({ hot: 0, cold: 0, good: 0, bad: 0 });
   const [currentNumber, setCurrentNumber] = useState<number | null>(null);
@@ -24,6 +27,7 @@ const PresenterView = () => {
   const [history, setHistory] = useState<HistoryItem[]>([]);
   
   const voterUrl = `${window.location.origin}/vote`;
+  const voltar = `${window.location.origin}/#/step-2`;
 
   useEffect(() => {
     socket.on('results', (newResults: VotingResult) => {
@@ -52,6 +56,7 @@ const PresenterView = () => {
 
   const startVoting = () => {
     const number = parseInt(inputNumber);
+
     if (isNaN(number)) {
       alert('Please enter a valid number');
       return;
@@ -61,15 +66,28 @@ const PresenterView = () => {
   };
 
   const stopVoting = () => {
+    if (currentNumber !== null) {
+      const historyItem: HistoryItem = {
+        number: currentNumber,
+        results,
+        timestamp: new Date().toISOString(),
+      };
+      dispatch(addHistory(historyItem));
+    }
     socket.emit('stopVoting');
   };
+
+
+  const handleClearHistory = () => {
+    dispatch(clearHistory());
+  };
+
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-4xl mx-auto">
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
           <h1 className="text-3xl font-bold mb-6">Definindo Ar Condicionado</h1>
-          
           <div className="flex justify-between items-center mb-8">
             <div className="flex-1">
               <div className={votingEnabled ? 'hidden' : 'block'}>
@@ -188,6 +206,9 @@ const PresenterView = () => {
               >
                 Limpar Registros
               </button>
+                        <a href={voltar} className="ml-20 px-6 py-2 rounded-lg font-semibold bg-blue-500 hover:bg-blue-600 text-white">
+            Voltar </a>
+
             </div>
           </div>
         </div>

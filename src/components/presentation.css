@@ -1,0 +1,137 @@
+/* src/components/presentation.css */
+
+/* Tema claro por padrão */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: white;
+    color: black;
+}
+
+/* Aplicando fundo escuro corretamente */
+.dark-mode body,
+.dark-mode #impress {
+    background-color: #111 !important; /* Fundo escuro */
+    color: white !important; /* Texto claro */
+}
+
+/* Garante que todas as letras fiquem visíveis no modo escuro */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode p,
+.dark-mode a {
+    color: white !important;
+}
+
+/* Slides */
+.step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Controle de fonte */
+:root {
+    --font-size-h1: 5em;
+    --font-size-h2: 4em;
+    --font-size-h3: 3em;
+    --font-size-h4: 2.5em;
+    --font-size-h5: 2em;
+    --font-size-h6: 1.8em;
+    --font-size-p: 2em;
+    --font-size-span: 1.8em;
+    --font-size-strong: 2em;
+    --font-size-em: 1.8em;
+    --font-size-small: 1.5em;
+    --font-size-a: 2em;
+    --font-size-ul: 1.8em;
+    --font-size-li: 1.8em;
+    --font-size-blockquote: 2.5em;
+    --font-size-code: 1.8em;
+    --font-size-pre: 1.6em;
+    --font-size-kbd: 1.6em;
+    --font-size-sub: 1.4em;
+    --font-size-sup: 1.4em;
+    --font-size-min: 0.2em;
+}
+
+#impress h1 { font-size: max(var(--font-size-h1), var(--font-size-min)); }
+#impress h2 { font-size: max(var(--font-size-h2), var(--font-size-min)); }
+#impress h3 { font-size: max(var(--font-size-h3), var(--font-size-min)); }
+#impress h4 { font-size: max(var(--font-size-h4), var(--font-size-min)); }
+#impress h5 { font-size: max(var(--font-size-h5), var(--font-size-min)); }
+#impress h6 { font-size: max(var(--font-size-h6), var(--font-size-min)); }
+#impress p { font-size: max(var(--font-size-p), var(--font-size-min)); }
+#impress span { font-size: max(var(--font-size-span), var(--font-size-min)); }
+#impress strong { font-size: max(var(--font-size-strong), var(--font-size-min)); font-weight: bold; }
+#impress em { font-size: max(var(--font-size-em), var(--font-size-min)); font-style: italic; }
+#impress small { font-size: max(var(--font-size-small), var(--font-size-min)); }
+#impress a { font-size: max(var(--font-size-a), var(--font-size-min)); text-decoration: none; }
+#impress ul, #impress ol { font-size: max(var(--font-size-ul), var(--font-size-min)); }
+#impress li { font-size: max(var(--font-size-li), var(--font-size-min)); }
+#impress blockquote { font-size: max(var(--font-size-blockquote), var(--font-size-min)); font-style: italic; }
+#impress code { font-size: max(var(--font-size-code), var(--font-size-min)); background: #f4f4f4; padding: 2px 4px; }
+#impress pre { font-size: max(var(--font-size-pre), var(--font-size-min)); background: #f4f4f4; padding: 10px; overflow-x: auto; }
+#impress kbd { font-size: max(var(--font-size-kbd), var(--font-size-min)); background: #eee; padding: 2px 4px; }
+#impress sub, #impress sup { font-size: max(var(--font-size-sub), var(--font-size-min)); }
+
+
+/* Links */
+#impress a {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#impress a:hover {
+    text-decoration: underline;
+}
+
+/* Controles */
+.controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.controls button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.controls button:hover {
+    background: #0056b3;
+}
+
+/* Correção do fundo dos botões no modo escuro */
+.dark-mode .controls button {
+    background: #444;
+    color: white;
+}
+
+.dark-mode .controls button:hover {
+    background: #666;
+}
+
+
+.step {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.step.active {
+    opacity: 1;
+}
