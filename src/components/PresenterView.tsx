@@ -45,6 +45,11 @@ const PresenterView = () => {
     };
   }, []);
 
+  const clearHistory = () => {
+    socket.emit('clearHistory');
+    setHistory([]);
+  };
+
   const startVoting = () => {
     const number = parseInt(inputNumber);
     if (isNaN(number)) {
@@ -175,6 +180,14 @@ const PresenterView = () => {
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="space-y-4">
+              <button
+                onClick={clearHistory}
+                className="px-6 py-2 rounded-lg font-semibold bg-red-500 hover:bg-red-600 text-white"
+              >
+                Limpar Registros
+              </button>
             </div>
           </div>
         </div>
