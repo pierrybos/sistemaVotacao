@@ -8,7 +8,7 @@ const PerceptronTrainer: React.FC = () => {
     const [trainingData, setTrainingData] = useState<{ input: number; expected: number }[]>([]);
     const [step, setStep] = useState(0);
     const [history, setHistory] = useState<
-        { input: number; output: number; expected: number; error: number; newPeso: number; newVies: number }[]
+        { input: number; output: number; expected: number; error: number; oldPeso: number; oldVies: number; newPeso: number; newVies: number }[]
     >([]);
     const [newInput, setNewInput] = useState<number | "">("");
     const [newExpected, setNewExpected] = useState<number>(0);
@@ -17,14 +17,24 @@ const PerceptronTrainer: React.FC = () => {
         if (trainingData.length === 0 || step >= trainingData.length) return;
 
         const { input, expected } = trainingData[step];
+
+        // Cálculo da saída do perceptron
         const result = input * peso + vies;
         const output = result >= 0 ? 1 : 0;
         const error = expected - output;
 
-        const newPeso = peso + error * input * learningRate;
-        const newVies = vies + error * learningRate;
+        // Guarda os pesos e viés antigos antes da atualização
+        const oldPeso = peso;
+        const oldVies = vies;
 
-        setHistory((prev) => [...prev, { input, output, expected, error, newPeso, newVies }]);
+        // Atualiza os pesos e o viés
+        const newPeso = oldPeso + error * input * learningRate;
+        const newVies = oldVies + error * learningRate;
+
+        // Atualiza o histórico de aprendizado corretamente
+        setHistory((prev) => [...prev, { input, output, expected, error, oldPeso, oldVies, newPeso, newVies }]);
+        
+        // Atualiza os estados dos pesos e viés
         setPeso(newPeso);
         setVies(newVies);
         setStep((prev) => prev + 1);
@@ -83,7 +93,7 @@ const PerceptronTrainer: React.FC = () => {
                     <div key={index} className={`result ${item.error === 0 ? "correct" : "error"}`}>
                         <p>🔢 Entrada: {item.input}</p>
                         <p>🎯 Esperado: {item.expected} | 🔮 Obtido: {item.output}</p>
-                        <p>⚖️ Cálculo: ({item.input} × {peso.toFixed(2)}) + {vies.toFixed(2)} = <strong>{(item.input * peso + vies).toFixed(2)}</strong></p>
+                        <p>⚖️ Cálculo: ({item.input} × {item.oldPeso.toFixed(2)}) + {item.oldVies.toFixed(2)} = <strong>{(item.input * item.oldPeso + item.oldVies).toFixed(2)}</strong></p>
                         <p>❗ Erro: {item.error}</p>
                         <p>🆕 Novo Peso: {item.newPeso.toFixed(2)} | 🆕 Novo Viés: {item.newVies.toFixed(2)}</p>
                     </div>

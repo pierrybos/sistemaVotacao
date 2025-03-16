@@ -21,6 +21,8 @@ const TemperatureNeural: React.FC = () => {
   const [newTemp, setNewTemp] = useState<number | "">("");
   const [prediction, setPrediction] = useState<string | null>(null);
   const [trainingStarted, setTrainingStarted] = useState(false);
+  const [finalEquation, setFinalEquation] = useState<string | null>(null);
+  const [bestTemperature, setBestTemperature] = useState<number | null>(null);
 
   // Função para iniciar o treinamento
   const startTraining = () => {
@@ -47,6 +49,13 @@ const TemperatureNeural: React.FC = () => {
 
     setTrainingSteps(steps);
     setCurrentStep(0);
+
+    // Calcula a equação final do modelo
+    setFinalEquation(`f(x) = ${newWeight.toFixed(3)} * x + ${newBias.toFixed(3)}`);
+
+    // Determina a melhor temperatura baseada no peso e viés treinados
+    const bestTemp = -newBias / newWeight;
+    setBestTemperature(bestTemp);
   };
 
   // Animação: Avança para o próximo passo de aprendizado
@@ -82,7 +91,7 @@ const TemperatureNeural: React.FC = () => {
         ) : (
           history.map((item, index) => (
             <div key={index} className="result">
-              <p>🌡️ Temperatura: <strong>{item.number}°C</strong></p>
+              <p>🌡️ Temperatura: {item.number}°C</p>
               <p>🔥 Quente: {item.results.hot} | ❄️ Frio: {item.results.cold}</p>
               <p>👍 Bom: {item.results.good} | 👎 Ruim: {item.results.bad}</p>
             </div>
@@ -99,7 +108,7 @@ const TemperatureNeural: React.FC = () => {
       {trainingStarted && currentStep < trainingSteps.length && (
         <div className="training">
           <h2>📚 Passo {currentStep + 1} de {trainingSteps.length}</h2>
-          <p>🌡️ Temperatura: <strong>{trainingSteps[currentStep]?.input}°C</strong></p>
+          <p>🌡️ Temperatura: {trainingSteps[currentStep]?.input}°C</p>
           <p>🎯 Esperado: {trainingSteps[currentStep]?.expected === 1 ? "✅ Boa" : "❌ Ruim"}</p>
           <p>🔮 Obtido: {trainingSteps[currentStep]?.output === 1 ? "✅ Boa" : "❌ Ruim"}</p>
           <p>⚖️ Peso Atual: {weight.toFixed(3)}</p>
@@ -110,7 +119,15 @@ const TemperatureNeural: React.FC = () => {
 
       {/* Treinamento concluído */}
       {trainingStarted && currentStep >= trainingSteps.length && (
-        <p>🎉 Treinamento Concluído!</p>
+        <>
+          <h2>🎉 Treinamento Concluído!</h2>
+          <p>📌 Equação do Modelo Treinado:</p>
+          <p>{finalEquation}</p>
+
+          {bestTemperature !== null && (
+            <p>⭐ Temperatura ótima sugerida: {bestTemperature.toFixed(2)}°C</p>
+          )}
+        </>
       )}
 
       {/* Teste de uma nova temperatura após o treino */}

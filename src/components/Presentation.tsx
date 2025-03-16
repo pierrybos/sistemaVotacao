@@ -93,7 +93,7 @@ const toggleDarkMode = (e: React.MouseEvent<HTMLButtonElement>) => {
                 <a target="_blank" style={{ textDecoration: 'none', color: 'white' }} onClick={(e) => e.stopPropagation()} className="text-white color-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" href="/votar">Votar</a>
             </div>
 
-                <div className="step" data-x="2000" data-y="0" data-rotate="20" data-scale="1.5">
+                <div className="step" data-x="2000" data-y="0" data-rotate="20" data-scale="1">
                     <h2>Vamos começar!</h2>
                 </div>
 
@@ -114,9 +114,9 @@ const toggleDarkMode = (e: React.MouseEvent<HTMLButtonElement>) => {
             <div className="step" data-x="-2000" data-y="1000" data-rotate="30">
                 <h3>Quem é Piérry Bos?</h3>
                 <h2>Desenvolvedor | Programador no TRF4 | Porto Alegre</h2>
-                <p><strong>📍 Localização:</strong> Porto Alegre, RS</p>
-                <p><strong>💼 Cargo Atual:</strong> Programador no Tribunal Regional Federal da 4ª Região (TRF4)</p>
-                <p><strong>🗓️ Anos de Experiência:</strong> 12 anos (desde 2013)</p>
+                <p>📍 Localização: Porto Alegre, RS</p>
+                <p>💼 Cargo Atual: Programador no Tribunal Regional Federal da 4ª Região (TRF4)</p>
+                <p>🗓️ Anos de Experiência: 12 anos (desde 2013)</p>
 
                 <h3>📱 Redes Sociais</h3>
                 <p>
@@ -140,11 +140,11 @@ const toggleDarkMode = (e: React.MouseEvent<HTMLButtonElement>) => {
 
             <div className="step" data-x="-2000" data-y="1000" data-rotate="30">
                 <h3>Quem é Piérry Bos?</h3>
-                <h2><strog>Cristão</strog> | Desenvolvedor | Programador no TRF4 | Porto Alegre</h2>
+                <h2>Cristão | Desenvolvedor | Programador no TRF4 | Porto Alegre</h2>
 
-                <p><strong>📍 Localização:</strong> Porto Alegre, RS</p>
-                <p><strong>💼 Cargo Atual:</strong> Programador no Tribunal Regional Federal da 4ª Região (TRF4)</p>
-                <p><strong>🗓️ Anos de Experiência:</strong> <s>12</s> 15 anos (desde <s>2013</s> 2010)</p>
+                <p>📍 Localização: Porto Alegre, RS</p>
+                <p>💼 Cargo Atual: Programador no Tribunal Regional Federal da 4ª Região (TRF4)</p>
+                <p>🗓️ Anos de Experiência: <s>12</s> 15 anos (desde <s>2013</s> 2010)</p>
 
                 <h3>📱 Redes Sociais</h3>
                 <p>
@@ -213,7 +213,7 @@ const toggleDarkMode = (e: React.MouseEvent<HTMLButtonElement>) => {
             </div>
 
             {/* Slide 4 - Primeiro Inverno da IA */}
-            <div className="step" data-x="10000" data-y="0" data-scale="110">
+            <div className="step" data-x="10000" data-y="10000" data-rotate="110">
                 <h2>🔹 1960 - 1980</h2>
                 <ul>
                     <li>1969 - Marvin Minsky mostra as limitações do Perceptron.</li>
@@ -223,7 +223,7 @@ const toggleDarkMode = (e: React.MouseEvent<HTMLButtonElement>) => {
             </div>
 
             {/* Slide 5 - Crescimento da IA */}
-            <div className="step" data-x="10000" data-y="0" data-scale="120">
+            <div className="step" data-x="10000" data-y="20000" data-rotate="120">
                 <h2>🔹 1980 - 2000</h2>
                 <ul>
                     <li>1997 - Deep Blue (IBM) derrota Garry Kasparov no xadrez.</li>
@@ -232,7 +232,7 @@ const toggleDarkMode = (e: React.MouseEvent<HTMLButtonElement>) => {
             </div>
 
             {/* Slide 6 - Era do Deep Learning */}
-            <div className="step" data-x="10000" data-y="0" data-scale="130">
+            <div className="step" data-x="10000" data-y="30000" data-rotate="130">
                 <h2>🔹 2000 - 2020</h2>
                 <ul>
                     <li>2006 - Geoffrey Hinton populariza redes neurais profundas.</li>
@@ -242,17 +242,17 @@ const toggleDarkMode = (e: React.MouseEvent<HTMLButtonElement>) => {
             </div>
 
             {/* Slide 7 - IA Moderna */}
-            <div className="step" data-x="10000" data-y="0" data-scale="140">
+            <div className="step" data-x="10000" data-y="40000" data-rotate="140">
                 <h2>🔹 2020 - Presente</h2>
                 <ul>
-                    <li>2020 - GPT-3 com 175 bilões de parâmetros.</li>
+                    <li>2020 - GPT-3 com 175 bilhões de parâmetros.</li>
                     <li>2023 - GPT-4 aprimora raciocínio e habilidades multimodais.</li>
                     <li>2024 - IA multimodal combina texto, imagem e vídeo.</li>
                 </ul>
             </div>
 
             {/* Slide 8 - O Futuro da IA */}
-            <div className="step" data-x="10000" data-y="0" data-scale="150">
+            <div className="step" data-x="10000" data-y="50000" data-rotate="150">
                 <h2>🔮 O Futuro da IA</h2>
                 <ul>
                     <li>AGI (Inteligência Artificial Geral).</li>
@@ -262,74 +262,98 @@ const toggleDarkMode = (e: React.MouseEvent<HTMLButtonElement>) => {
             </div>
 
             {/* Slide 6 - Como ela funciona */}
-            <div className="step" data-x="1000" data-y="1000" data-rotate="50">
+            <div className="step" data-x="20000" data-y="2000" data-rotate="50">
                 <h2>Como ela funciona?</h2>
                 <p>Entendendo os princípios básicos.</p>
             </div>
 
 
-            <div className="step" data-x="2000" data-y="1000">
+            <div className="step" data-x="20000" data-y="4000">
                 <h1>🧠 Como uma IA Aprende?</h1>
                 <p>Vamos ensinar um Perceptron a decidir se um número é maior que 5.</p>
                 <p>Ele começará errando e aprenderá ajustando seus pesos!</p>
             </div>
 
             {/* Slide 2 - O Perceptron Inicial */}
-            <div className="step" data-x="3000" data-y="1000">
+            <div className="step" data-x="20000" data-y="5000">
                 <h2>🚀 O Perceptron Inicia</h2>
                 <p>Começamos com um peso e um viés aleatórios:</p>
-                <p><strong>Peso = 0.5, Viés = -2</strong></p>
+                <p>Peso = 0.1, Viés = -1</p>
                 <p>Ele ainda não sabe decidir corretamente!</p>
             </div>
 
             {/* Slide 3 - Primeiro Teste com 7 */}
-            <div className="step" data-x="4000" data-y="1000">
+            <div className="step" data-x="20000" data-y="6000">
                 <h2>🔢 Teste com 7</h2>
-                <p>Entrada = **7**, Peso = **0.5**, Viés = **-2**</p>
-                <p>Cálculo: (7 × 0.5) + (-2) = **1.5**</p>
-                <p>Como 1.5 é maior que 0, saída = **1** (Correto!)</p>
+                <p>Entrada = <b>7</b>, Peso = <b>0.1</b>, Viés = <b>-1</b></p>
+                <p>Cálculo: (7 × 0.1) + (-1) = <b>-0.3</b></p>
+                <p>Como -0.3 é menor que 0, saída = <b>0</b> (Erro!)</p>
             </div>
-
-            {/* Slide 4 - Teste com 3 (Erro) */}
-            <div className="step" data-x="5000" data-y="1000">
-                <h2>❌ Teste com 3 (Erro!)</h2>
-                <p>Entrada = **3**, Peso = **0.5**, Viés = **-2**</p>
-                <p>Cálculo: (3 × 0.5) + (-2) = **-0.5**</p>
-                <p>A saída foi **0** (correto), mas queremos usar o erro para treinar.</p>
-                <p><strong>Erro = Resposta Correta - Resposta do Perceptron</strong></p>
-            </div>
-
-            {/* Slide 5 - Ajustando os Pesos pelo Erro */}
-            <div className="step" data-x="6000" data-y="1000">
+            <div className="step" data-x="20000" data-y="8000">
                 <h2>📉 Como Ajustamos?</h2>
                 <p>Usamos a fórmula:</p>
-                <p><strong>Novo Peso = Peso + (Erro × Entrada × Taxa de Aprendizado)</strong></p>
-                <p><strong>Novo Viés = Viés + (Erro × Taxa de Aprendizado)</strong></p>
+                <p>Novo Peso = Peso + (Erro × Entrada × Taxa de Aprendizado)</p>
+                <p>Novo Viés = Viés + (Erro × Taxa de Aprendizado)</p>
             </div>
 
             {/* Slide 6 - Aplicando a Correção */}
-            <div className="step" data-x="7000" data-y="1000" >
+            <div className="step" data-x="20000" data-y="9000" >
                 <h2>✅ Calculando o Novo Peso e Viés</h2>
                 <p>Taxa de Aprendizado = 0.1</p>
-                <p>Erro = **Resposta Correta - Resposta Obtida** = 1 - 0 = **1**</p>
-                <p><strong>Novo Peso = 0.5 + (1 × 3 × 0.1) = 0.8</strong></p>
-                <p><strong>Novo Viés = -2 + (1 × 0.1) = -1.9</strong></p>
+                <p>Erro = **Resposta Correta - Resposta Obtida** = 1 - 0 = <b>1</b></p>
+                <p>Novo Peso = Peso + (Erro × Entrada × Taxa de Aprendizado)</p>
+                <p>Novo Peso = 0.1 + (1 × 7 × 0.1) = 0.8</p>
+                <p>Novo Viés = Viés + (Erro × Taxa de Aprendizado)</p>
+                <p>Novo Viés = -1 + (1 × 0.1) = -0.9</p>
             </div>
 
-            {/* Slide 7 - Testando de Novo */}
-            <div className="step" data-x="8000" data-y="1000">
-                <h2>🔁 Novo Teste com 3</h2>
-                <p>Entrada = **3**, Peso = **0.8**, Viés = **-1.9**</p>
-                <p>Cálculo: (3 × 0.8) + (-1.9) = **0.5**</p>
-                <p>Agora a saída é **1** (agora está correto!)</p>
+            {/* Slide 4 - Teste com 3 (Erro) */}
+            <div className="step" data-x="20000" data-y="7000">
+                <h2>Teste com 7  Ajustado</h2>
+                <p>Entrada = <b>7</b>, Peso = <b>0.8</b>, Viés = <b>-0.9</b></p>
+                <p>Cálculo: (7 × 0.8) + (-0.9) = <b>4.7</b></p>
+                <p>A saída foi <b>1</b> (correto)</p>
+            </div>
+
+            <div className="step" data-x="20000" data-y="7000">
+                <h2>Teste com 4  Ajustado</h2>
+                <p>Entrada = <b>4</b>, Peso = <b>0.8</b>, Viés = <b>-0.9</b></p>
+                <p>Cálculo: (4 × 0.8) + (-0.9) = <b>2.3</b></p>
+                <p>A saída foi <b>1</b> (Errado)</p>
+            </div>
+
+            {/* Slide 6 - Aplicando a Correção */}
+            <div className="step" data-x="20000" data-y="9000" >
+                <h2>✅ Calculando o Novo Peso e Viés</h2>
+                <p>Taxa de Aprendizado = 0.5</p>
+                <p>Erro = **Resposta Correta - Resposta Obtida** = 0 - 1 = <b>-1</b></p>
+                <p>Novo Peso = Peso + (Erro × Entrada × Taxa de Aprendizado)</p>
+                <p>Novo Peso = 0.8 + (-1 × 4 × 0.5) = -1.2</p>
+                <p>Novo Viés = Viés + (Erro × Taxa de Aprendizado)</p>
+                <p>Novo Viés = -0.9 + (-1 × 0.5) = -1.4</p>
+            </div>
+
+            <div className="step" data-x="20000" data-y="7000">
+                <h2>Teste com 4  Ajustado</h2>
+                <p>Entrada = <b>4</b>, Peso = <b>-1.2</b>, Viés = <b>-1.4</b></p>
+                <p>Cálculo: (4 × -1.2) + (-1.4) = <b>-3.2</b></p>
+                <p>A saída foi <b>0</b> (correto)</p>
             </div>
 
 
-            <div className="step" data-x="9000" data-y="1000">
+            {/* Slide 4 - Teste com 3 (Erro) */}
+            <div className="step" data-x="20000" data-y="7000">
+                <h2>Teste com 7  Ajustado</h2>
+                <p>Entrada = <b>7</b>, Peso = <b>-1.2</b>, Viés = <b>-1.4</b></p>
+                <p>Cálculo: (7 × -1.2) + (-1.4) = <b>-7</b></p>
+                <p>A saída foi <b>0</b> (Errado)</p>
+            </div>
+
+            <div className="step" data-x="20000" data-y="30000">
                 <h2>Como ficamos</h2>
                 <p>Mostrando a maquina:</p>
-                <p><strong><a href="/neuronio">Neuronio</a></strong></p>
-                <p><strong><a href="/temperatura">Rede Neural:</a></strong></p>
+                <p><a href="/neuronio">Neuronio</a></p>
+                <p><a href="/temperatura">Rede Neural:</a></p>
             </div>
 
 
@@ -339,39 +363,39 @@ const toggleDarkMode = (e: React.MouseEvent<HTMLButtonElement>) => {
                 <p>Exemplos práticos de IA no cotidiano.</p>
             </div>
 
-            <div className="step" data-x="5000" data-y="1000" data-rotate="60">
+            <div className="step" data-x="5000" data-y="5000" data-rotate="60">
                 <a href="https://chat.openai.com">Chat.com - ChatGPT</a>
                 <a href="https://www.deepseek.com/">DeepSeek</a>
             </div>
 
 
-            <div class="step" data-x="6000" data-y="1000">
+            <div className="step" data-x="6000" data-y="5000">
             <h2>There's An AI For That</h2>
-            <p><strong>Link:</strong> <a href="https://theresanaiforthat.com" target="_blank">theresanaiforthat.com</a></p>
-            <p><strong>O que é:</strong> Um banco de dados abrangente de ferramentas de IA organizadas por categorias, como marketing, design, educação, saúde, etc.</p>
-            <p><strong>Destaque:</strong> Permite buscar ferramentas por tarefa específica (ex.: "tradução de texto" ou "geração de imagens").</p>
+            <p>Link: <a href="https://theresanaiforthat.com" target="_blank">theresanaiforthat.com</a></p>
+            <p>O que é: Um banco de dados abrangente de ferramentas de IA organizadas por categorias, como marketing, design, educação, saúde, etc.</p>
+            <p>Destaque: Permite buscar ferramentas por tarefa específica (ex.: "tradução de texto" ou "geração de imagens").</p>
         </div>
 
-        <div class="step" data-x="7000" data-y="1000">
+        <div className="step" data-x="7000" data-y="5000">
             <h2>AI Tools Directory</h2>
-            <p><strong>Link:</strong> <a href="https://www.aitoolsdirectory.com" target="_blank">aitoolsdirectory.com</a></p>
-            <p><strong>O que é:</strong> Um diretório organizado de ferramentas de IA, com descrições detalhadas e links para cada uma.</p>
-            <p><strong>Destaque:</strong> Inclui avaliações e comentários de usuários.</p>
+            <p>Link: <a href="https://www.aitoolsdirectory.com" target="_blank">aitoolsdirectory.com</a></p>
+            <p>O que é: Um diretório organizado de ferramentas de IA, com descrições detalhadas e links para cada uma.</p>
+            <p>Destaque: Inclui avaliações e comentários de usuários.</p>
         </div>
 
-        <div class="step" data-x="8000" data-y="1000">
+        <div className="step" data-x="8000" data-y="5000">
             <h2>Product Hunt (Categoria AI)</h2>
-            <p><strong>Link:</strong> <a href="https://www.producthunt.com" target="_blank">producthunt.com</a></p>
-            <p><strong>O que é:</strong> Uma plataforma para descobrir novos produtos e ferramentas, incluindo muitas soluções de IA.</p>
-            <p><strong>Destaque:</strong> Permite ver as ferramentas mais populares e votadas pela comunidade.</p>
+            <p>Link: <a href="https://www.producthunt.com" target="_blank">producthunt.com</a></p>
+            <p>O que é: Uma plataforma para descobrir novos produtos e ferramentas, incluindo muitas soluções de IA.</p>
+            <p>Destaque: Permite ver as ferramentas mais populares e votadas pela comunidade.</p>
         </div>
 
             {/* Slide 8 - Principais problemas */}
-            <div className="step" data-x="9000" data-y="1000" data-rotate="70">
+            <div className="step" data-x="9000" data-y="5000" data-rotate="70">
                 <h2>Principais problemas</h2>
                 <p>Os desafios da inteligência artificial.</p>
             </div>
-            
+
         </div>
         </>
     );
